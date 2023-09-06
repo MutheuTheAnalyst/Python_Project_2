@@ -75,16 +75,17 @@
 - **Insights**:
 
     - The 'CustomerID' Histogram confirms and displays that our **dataset contains 200 customers**.
+
+       ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/775825bf-2926-4304-8a5d-b6718efdfd75)
     
     - From the 'Annual Income' Histogram, I observed that the **age range of the customers is between 18-69** whereby **most customers are in the age range 18-52**.
+
+      ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/b9523c35-bf6a-4968-a350-74d98711bbdb)
+
   
     - From the 'Annual Income' Histogram,I observed that **most of the customers lie between the 50k-80k annual income range** while the **total range lies between 18k to 52k**.
     
-    ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/775825bf-2926-4304-8a5d-b6718efdfd75)
-
-    ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/b9523c35-bf6a-4968-a350-74d98711bbdb)
-
-    ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/91903eec-0a72-4361-ad99-d526593e80ff)
+     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/91903eec-0a72-4361-ad99-d526593e80ff)
 
 **3).** **KDE Plots** for each of the numerical  variables,categorized by gender.
 
@@ -101,15 +102,17 @@
 - **Insights:**
  
    - From the Ist visualization, the **female customers are more in number within the age range of about 18 to 58**.In the **0-18 and 58-80 age ranges,the male gender customers are more in number**.
+
+     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/e518fd84-fd3c-4343-a240-4c08de9d8ba5)
+     
  
    - In the 2nd visualization, the **female customers earn more annual income than the male customers within the income range 0-130k** while in the **130-150k range the male customers outshine the female customers**.
+     
+     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/f97c0098-890c-4598-8b55-fa0341715a7a)
+     
  
    - Generally, **female customers have a significantly higher spending score** as compared to their male counterparts.
    
-     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/e518fd84-fd3c-4343-a240-4c08de9d8ba5)
-
-     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/f97c0098-890c-4598-8b55-fa0341715a7a)
-
      ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/6b7b64bd-fefb-4d8c-b0e9-e78389fa02e7)
 
 
@@ -132,6 +135,20 @@
 ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/59d5ba86-f483-4100-98b5-81be92a8ea42)
 
 ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/47f9a750-4ae9-4df0-8d40-108279982be7)
+
+**5).** Number of male and female customers in % form.
+
+- **Code:** df['Gender'].value_counts(normalize=True)
+
+- It is clear to see that the **female customers outnumber the male customers by 12%**.
+
+- **Output:**
+
+  Female    0.56
+  
+  Male      0.44
+
+  Name: Gender, dtype: float64
 
 
 
