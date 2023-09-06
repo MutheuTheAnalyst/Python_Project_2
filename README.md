@@ -150,6 +150,8 @@
 
   Name: Gender, dtype: float64
 
+  ## Bivariate Analysis.
+
 
 
 
