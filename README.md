@@ -150,7 +150,7 @@
 
   Name: Gender, dtype: float64
 
-  ## Bivariate Analysis.
+## Bivariate Analysis.
 
 **1).** **Scatter plot** to show the relationship between **'Annual Income and 'Spending score'**.
 
@@ -190,7 +190,7 @@
 
                        Spending Score (1-100)	-0.327227	0.009903	1.000000
 
-**4).** Mean values of the numerical data variables,grouped by gender.
+**4).** **Mean values** of the numerical data variables,**grouped by gender.**
 
 -  By observation, although the **male customers have an averagely higher income though they spend less** in comparision to the female customers.
 
@@ -213,8 +213,92 @@
     ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/706a006c-e59f-4006-af22-11ee96df67a2)
 
 
-## Univariate Clustering.  
+## Univariate Clustering. 
+
+**>** For loop to **determine the intertia scores for  clusters** between the range of 1-11.
+
+- **Code:** 
+
+       intertia_scores=[]
+
+       for i in range(1,11):
+
+        kmeans=KMeans(n_clusters=i)
+    
+        kmeans.fit(df[['Annual Income (k$)']])
+    
+        intertia_scores.append(kmeans.inertia_)
+
+**>** **Plot the intertia scores** to obtain the most suitable cluster number,this is through the elbow method.
+
+- From the plot, I determined the **appropriate lot size to be 3**.
+
+- **Code:** plt.plot(range(1,11),intertia_scores)
+
+   ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/8467b90a-442f-4704-ba80-60293f3558fc)
+
+**>** **Initiate my algorithm**.
+
+- **Code:** clustering1 = KMeans(n_clusters=3)
+
+**>** **Fit my algorithm into the data**.
+
+- **Code:** clustering1.fit(df[['Annual Income (k$)']])
+
+**>** **Add an 'Income Cluster'** column that contains clustered data values to the existing dataset.
+
+- **Code 1:** df['Income Cluster'] = clustering1.labels and **Code 2:** df.head()
+
+-  **Output:**
+
+Gender	  Age	    Annual Income (k$)	Spending Score (1-100)	Income Cluster
+
+0	Male	         19	         15	                    39	                        0
+
+1	Male	         21	         15                    	81	                        0
+
+2	Female	       20	         16                    	6                          	0
+
+3	Female	        23	         16	                    77	                        0
+
+4	Female	        31	         17	                     40	                        0
+
+**>** Obtain the **number of data values in each cluster**.
+
+- **Code:** df['Income Cluster'].value_counts()
+
+- **Output:**
+
+   - The '1' cluster has the largest number of customers i.e 92.
  
+   - The '0' cluster has the second largest number of customers i.e 72.
+ 
+   - The '2' cluster has the least number of customers i.e 36.
+ 
+**>** **Summary statistics of the clusters** obtained.
+
+- The **income cluster 2 has the highest level of annual income** in addittion to the **highest spending score**.
+
+- **Code:** df.groupby('Income Cluster')['Age', 'Annual Income (k$)','Spending Score (1-100)'].mean()   
+
+- **Output:**
+
+                  Age	Annual Income (k$)	Spending Score (1-100)
+  
+Income Cluster
+
+            0	38.930556	33.027778	50.166667
+
+            1	39.184783	66.717391	50.054348
+
+            2	37.833333	99.888889	50.638889
+
+
+## Bivariate Clustering.            
+
+
+
+
 
 
 
