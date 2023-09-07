@@ -152,6 +152,72 @@
 
   ## Bivariate Analysis.
 
+**1).** **Scatter plot** to show the relationship between **'Annual Income and 'Spending score'**.
+
+- From the visualization, I observed that **the two variables have a non-linear realtionship**.
+
+- **Code:** sns.scatterplot(data=df, x='Annual Income (k$)',y='Spending Score (1-100)' )
+
+  ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/9d5bda2c-e642-49b5-9471-104dd44473e7)
+
+**2)** **Pairplots** for the dataset variables.
+
+- From the pairplots, I observed the type of relationship each variable has with each other.
+  
+- **Code:**
+
+   df=df.drop('CustomerID',axis=1)
+
+   sns.pairplot(df,hue='Gender')
+
+  ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/9692e4de-3c75-491d-9561-2ac6946e6623)
+
+**3)** **Correlation** between the variables.
+
+- From the output, I observed that the **'Age' variable is negatively correlated to the 'Annual income' and 'Spending score' variables**.
+
+- While the **'Annual income' is positively correlated to the 'Spending score'**.
+
+- **Code:** df.corr()
+
+- **Output:**
+
+                        Age   	Annual Income (k$)	Spending Score (1-100)
+  
+                       Age	                     1.000000	-0.012398	-0.327227
+
+                       Annual Income (k$)	    -0.012398	1.000000	0.009903
+
+                       Spending Score (1-100)	-0.327227	0.009903	1.000000
+
+**4).** Mean values of the numerical data variables,grouped by gender.
+
+-  By observation, although the **male customers have an averagely higher income though they spend less** in comparision to the female customers.
+
+- **Code:** df.groupby(['Gender'])['Age', 'Annual Income (k$)','Spending Score (1-100)'].mean()
+
+- **Output:**
+
+                      Age	       Annual Income (k$)	   Spending Score (1-100)
+
+           Gender
+   
+           Female	38.098214	      59.250000	           51.526786
+
+           Male	 39.806818	      62.227273	             48.511364
+
+**5).** **Heatmap** to display the correlation between variables.
+
+- To read the visualization, -1>x>0 indicates a negative correlatio between the variables while 0>x<1 indicates a positive correlation between the variables.
+
+    ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/706a006c-e59f-4006-af22-11ee96df67a2)
+
+
+## Univariate Clustering.  
+ 
+
+
+
 
 
 
