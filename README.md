@@ -215,9 +215,9 @@
 
 ## Univariate Clustering. 
 
-**>** For loop to **determine the intertia scores for  clusters** between the range of 1-11.
+**i)** For loop to **determine the intertia scores for  clusters** between the range of 1-11.
 
-- **Code:** 
+  - **Code:** 
 
        intertia_scores=[]
 
@@ -229,69 +229,69 @@
     
         intertia_scores.append(kmeans.inertia_)
 
-**>** **Plot the intertia scores** to obtain the most suitable cluster number,this is through the elbow method.
+**ii)** **Plot the intertia scores** to obtain the most suitable cluster number,this is through the elbow method.
 
-- From the plot, I determined the **appropriate lot size to be 3**.
+  - From the plot, I determined the **appropriate lot size to be 3**.
 
-- **Code:** plt.plot(range(1,11),intertia_scores)
+  - **Code:** plt.plot(range(1,11),intertia_scores)
 
-   ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/8467b90a-442f-4704-ba80-60293f3558fc)
+  ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/8467b90a-442f-4704-ba80-60293f3558fc)
 
-**>** **Initiate my algorithm**.
+**iii)** **Initiate my algorithm**.
 
 - **Code:** clustering1 = KMeans(n_clusters=3)
 
-**>** **Fit my algorithm into the data**.
+**iv)** **Fit my algorithm into the data**.
 
 - **Code:** clustering1.fit(df[['Annual Income (k$)']])
 
-**>** **Add an 'Income Cluster'** column that contains clustered data values to the existing dataset.
+**v)** **Add an 'Income Cluster'** column that contains clustered data values to the existing dataset.
 
 - **Code 1:** df['Income Cluster'] = clustering1.labels and **Code 2:** df.head()
 
--  **Output:**
+-  **Output:**  
 
-Gender	  Age	    Annual Income (k$)	Spending Score (1-100)	Income Cluster
+       Gender	  Age	    Annual Income (k$)	Spending Score (1-100)	Income Cluster
 
-0	Male	         19	         15	                    39	                        0
+      0	Male	         19	         15	                    39	                        0
 
-1	Male	         21	         15                    	81	                        0
+      1	Male	         21	         15                    	81	                        0
 
-2	Female	       20	         16                    	6                          	0
+      2	Female	       20	         16                    	6                          	0
 
-3	Female	        23	         16	                    77	                        0
+      3	Female	        23	         16	                    77	                        0
 
-4	Female	        31	         17	                     40	                        0
+      4	Female	        31	         17	                     40	                        0
 
-**>** Obtain the **number of data values in each cluster**.
+**vi)** Obtain the **number of data values in each cluster**.
 
 - **Code:** df['Income Cluster'].value_counts()
 
 - **Output:**
 
-   - The '1' cluster has the largest number of customers i.e 92.
+      - The **'1' cluster** has the largest number of customers i.e **92**.
  
-   - The '0' cluster has the second largest number of customers i.e 72.
+      - The **'0' cluster** has the second largest number of customers i.e **72**.
  
-   - The '2' cluster has the least number of customers i.e 36.
+      - The **'2'** cluster has the least number of customers i.e **36**.
  
-**>** **Summary statistics of the clusters** obtained.
+**vii)** **Summary statistics of the clusters** obtained.
 
-- The **income cluster 2 has the highest level of annual income** in addittion to the **highest spending score**.
+ - The **income cluster 2 has the highest level of annual income** in addittion to the **highest spending score**.
 
 - **Code:** df.groupby('Income Cluster')['Age', 'Annual Income (k$)','Spending Score (1-100)'].mean()   
 
 - **Output:**
 
-                  Age	Annual Income (k$)	Spending Score (1-100)
+                      Age	Annual Income (k$)	Spending Score (1-100)
   
-Income Cluster
+       Income Cluster
 
-            0	38.930556	33.027778	50.166667
+                     0	38.930556	33.027778	50.166667
 
-            1	39.184783	66.717391	50.054348
+                     1	39.184783	66.717391	50.054348
 
-            2	37.833333	99.888889	50.638889
+                      2	37.833333	99.888889	50.638889
 
 
 ## Bivariate Clustering.            
