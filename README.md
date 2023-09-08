@@ -412,15 +412,15 @@ Spending and Income Cluster
 
     **1).** The **best target customer group** is: **Cluster 1**.
 
-          - This is because this cluster has both a high spending score and high income thus their able to purchase more products and at an often rate too.
+    - This is because this cluster has both a high spending score and high income thus their able to purchase more products and at an often rate too.
 
-          - 54% of cluster 1 customers are women.The marketing team could run a marketing campaign advertising items that particularly resonate with this sub-cluster.
+    - 54% of cluster 1 customers are women.The marketing team could run a marketing campaign advertising items that particularly resonate with this sub-cluster.
 
     **2)** **Cluster 3** also **presents** an interesting **opportunity to  increase product sales**.
 
-           - Although this cluster is in the low income range,it is suprisingly also in the high spending score category.
+     - Although this cluster is in the low income range,it is suprisingly also in the high spending score category.
 
-           - The customers could potentially be inclined to purchase more products when popular items are discounted.
+     - The customers could potentially be inclined to purchase more products when popular items are discounted.
 
 
 
