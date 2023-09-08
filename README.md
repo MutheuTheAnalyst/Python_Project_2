@@ -294,8 +294,138 @@
                       2	37.833333	99.888889	50.638889
 
 
-## Bivariate Clustering.            
+## Bivariate Clustering. 
 
+**i).** Initiate the KMeans clustering algorithm,fit the data values,label the obtained clusters, create new column,obtain dataset overview.
+
+   - **Code:**
+  
+      clustering2 = KMeans(n_clusters=5)
+
+      clustering2.fit(df[['Annual Income (k$)','Spending Score (1-100)']])
+
+       df['Spending and Income Cluster'] =clustering2.labels_
+
+       df.head()
+
+   - **Output:**
+
+           Gender	       Age	    Annual Income (k$)	  Spending Score (1-100)	Income Cluster	Spending and Income Cluster
+    
+         0	Male	        19	            15	                      39	               0	                       4
+
+         1	Male	        21	             15	                      81	                0	                       3
+
+         2	Female	      20	             16	                      6                  	0	                       4
+
+         3	Female	      23	             16                       77                 	0	                        3
+
+         4	Female	      31	             17                        40	                 0	                       4
+
+**ii).** Obtain the appropriate number of clusters for the dataset using the elbow method.
+
+ - From the plot,I was able to obtain that the **suitable number of clusters is 5**.
+
+ - **Code:**   
+
+    intertia_scores2=[]
+
+    for i in range(1,11):
+
+     kmeans2=KMeans(n_clusters=i)
+  
+     kmeans2.fit(df[['Annual Income (k$)','Spending Score (1-100)']])
+  
+    intertia_scores2.append(kmeans2.inertia_)
+  
+   plt.plot(range(1,11),intertia_scores2)
+
+    ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/52e1459d-a3f7-4b22-a025-04d0c33d1f0e)
+
+**iii).** **Scatter plot** to display the relationship between the 'Spending score' and 'Annual Income' in reference to clusters.
+
+   - **Code 1:**
+
+     centers =pd.DataFrame(clustering2.cluster_centers_)
+  
+     centers.columns = ['x','y']
+
+  - **Code 2:**
+
+    plt.figure(figsize=(10,8))
+ 
+    plt.scatter(x=centers['x'],y=centers['y'],s=100,c='black',marker='*')
+
+    sns.scatterplot(data=df, x ='Annual Income (k$)',y='Spending Score (1-100)',hue='Spending and Income Cluster',palette='tab10')
+
+    plt.savefig('clustering_bivaraiate.png')
+
+
+      ![image](https://github.com/MutheuTheAnalyst/Python_Projet_2/assets/92978069/ebba26b5-1e65-45fd-a6df-03feed95c646)
+
+**iv)** Compare the male and female gender by the 'Spending and Income Cluster'.
+
+- **Code:** pd.crosstab(df['Spending and Income Cluster'],df['Gender'],normalize='index')
+
+- **Output:**
+
+                      Gender	     Female       	Male
+  
+Spending and Income Cluster	
+
+  	        0                       0.592593	      0.407407
+         
+            1	                     0.538462	      0.461538
+          
+            2	                     0.457143	      0.542857
+          
+            3	                     0.590909	      0.409091
+          
+            4	                     0.608696	      0.391304
+
+**v).** **Group the variables** by the 'Spending and Income' Cluster.
+
+- **Code:** df.groupby('Spending and Income Cluster')['Age', 'Annual Income (k$)','Spending Score (1-100)'].mean()
+
+- **Output:**
+
+                                          Age	         Annual Income (k$)	      Spending Score (1-100)
+  
+    Spending and Income Cluster	
+
+              0	                        42.716049	         55.296296	                49.518519
+
+              1	                        32.692308	          86.538462                	82.128205
+
+              2	                         41.114286	        88.200000	                 17.114286
+
+              3	                         25.272727	         25.727273	                79.363636
+
+              4	                         45.217391	         26.304348	                 20.913043
+
+
+## Reccommendations Obtained From The Project.
+
+- The **aim** of the project is to **identify the best target customer group(s)** in order for the **marketing team  to plan the best optimal strategy** that ought to **increase the mall's product sales**.
+
+- Following my analysis above,my reccommendations are as follows:
+
+    **1).** The **best target customer group** is: **Cluster 1**.
+
+          - This is because this cluster has both a high spending score and high income thus their able to purchase more products and at an often rate too.
+
+          - 54% of cluster 1 customers are women.The marketing team could run a marketing campaign advertising items that particularly resonate with this sub-cluster.
+
+    **2)** **Cluster 3** also **presents** an interesting **opportunity to  increase product sales**.
+
+           - Although this cluster is in the low income range,it is suprisingly also in the high spending score category.
+
+           - The customers could potentially be inclined to purchase more products when popular items are discounted.
+
+
+
+  
+    
 
 
 
