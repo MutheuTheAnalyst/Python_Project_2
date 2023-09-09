@@ -1,4 +1,4 @@
-# Python_Procjet_2
+# Python_Project_2
 ## Introduction
 
 - In this project, a clean and transformed **'Mall_Customers Dataset'** obtained from a  shopping mall's database is presented.
